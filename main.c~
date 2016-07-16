@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+	/*This program will read a text file the from command line and convert it into a binary file*/
+
+  int main(int argc, char* argv[])
+   {
+     /*define files to be used*/
+	FILE *inputFile;
+
+     /*open local text file to be used */
+	if((inputFile = fopen(argv[1], "r")) == NULL) 
+	  {
+	    printf("The file %s cannot be opened\n",argv[1]);
+	    exit(1);
+	  }
+
+	else {
+	printf("The file %s has been opened sucessfully\n",argv[1]);
+	}
+	
+
+     /*handle conversion*/
+	convertTextToBinary(inputFile);
+	
+     /*closing file*/
+	fclose(inputFile);
+	
+  return 0;
+   }
